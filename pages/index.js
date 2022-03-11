@@ -14,7 +14,7 @@ const HomeContainer = styled.div`
 `;
 
 const BoxWrapper = styled.div`
-  display: flex;
+  display: block;
   justify-content: space-around;
 `;
 

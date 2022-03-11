@@ -27,7 +27,9 @@ const Home = ({ initialJokes }) => {
   }, [savedJokes]);
 
   useEffect(() => {
-    setSavedJokes(JSON.parse(initialJokes));
+    if (initialJokes) {
+      setSavedJokes(JSON.parse(initialJokes));
+    }
   }, [initialJokes]);
 
   return (
@@ -45,7 +47,7 @@ Home.getInitialProps = ({ req }) => {
   const cookies = parseCookies(req);
 
   return {
-    initialJokes: cookies.jokes,
+    initialJokes: cookies?.jokes || [],
   };
 };
 

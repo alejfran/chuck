@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ButtonContainer = styled.button`
+  ${(props) => props.styles}
   background: #f7971e;
   background: -webkit-linear-gradient(to right, #f7971e, #ffd200);
   background: linear-gradient(to right, #f7971e, #ffd200);
@@ -18,9 +19,9 @@ const ButtonContainer = styled.button`
   }
 `;
 
-const ButtonComponent = ({ text, click }) => {
+const ButtonComponent = ({ text, click, styles }) => {
   return (
-    <ButtonContainer onClick={click}>
+    <ButtonContainer onClick={click} styles={styles}>
       <p style={{ fontFamily: "Alfa Slab One", fontSize: "1.2rem" }}>{text}</p>
     </ButtonContainer>
   );

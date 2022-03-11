@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
-import SelectBar from "../components/SelectBar";
+import SavedJokesBox from "../components/SavedJokesBox";
 import SelectionBox from "../components/SelectionBox";
 
 const HomeContainer = styled.div`
@@ -11,11 +11,21 @@ const HomeContainer = styled.div`
   padding: 4rem;
 `;
 
+const BoxWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
 const Home = () => {
+  const [savedJokes, setSavedJokes] = useState([]);
+
   return (
     <HomeContainer>
       <Header />
-      <SelectionBox />
+      <BoxWrapper>
+        <SelectionBox setSavedJokes={setSavedJokes} />
+        <SavedJokesBox savedJokes={savedJokes} setSavedJokes={setSavedJokes} />
+      </BoxWrapper>
     </HomeContainer>
   );
 };

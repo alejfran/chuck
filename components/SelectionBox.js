@@ -15,7 +15,8 @@ const BoxContainer = styled.div`
   display: flex;
   padding: 2rem 4rem;
   background-color: whitesmoke;
-  max-width: 50rem;
+  max-width: 45rem;
+  min-width: 45rem;
   min-height: 35rem;
   border-radius: 1rem;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
@@ -33,7 +34,7 @@ const BoxTitle = styled.p`
   font-size: 3rem;
 `;
 
-const SelectionBox = () => {
+const SelectionBox = ({ setSavedJokes }) => {
   const [selectedCategory, setSelectedCategory] = useState();
   const [newJoke, setNewJoke] = useState({});
 
@@ -52,9 +53,7 @@ const SelectionBox = () => {
     <Wrapper>
       <BoxContainer>
         <LeftContainer>
-          <BoxTitle onClick={() => console.log(selectedCategory)}>
-            Generate a new joke
-          </BoxTitle>
+          <BoxTitle>Generate a new joke</BoxTitle>
           <div
             style={{
               display: "flex",
@@ -69,12 +68,27 @@ const SelectionBox = () => {
             style={{
               boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.2)",
               borderRadius: "1rem",
-              padding: "3rem",
+              padding: "1rem",
               minHeight: "20rem",
+              maxHeight: "20rem",
+              overflow: "auto",
             }}
           >
             <p style={{ fontSize: "1.5rem" }}>{newJoke.value}</p>
           </div>
+          <ButtonComponent
+            text={"Save joke"}
+            styles={"margin-top: 2rem;"}
+            click={() =>
+              setSavedJokes((prev) =>
+                newJoke.value
+                  ? !prev?.map((joke) => joke.id).includes(newJoke.id)
+                    ? [...prev, newJoke]
+                    : [...prev]
+                  : [...prev]
+              )
+            }
+          />
         </LeftContainer>
       </BoxContainer>
     </Wrapper>

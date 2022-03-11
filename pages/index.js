@@ -28,7 +28,7 @@ const Home = ({ initialJokes }) => {
 
   useEffect(() => {
     setSavedJokes(JSON.parse(initialJokes));
-  }, []);
+  }, [initialJokes]);
 
   return (
     <HomeContainer>

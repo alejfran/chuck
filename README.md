@@ -4,6 +4,10 @@ Prueba Técnica
 
 Para desplegar a producción simplemente hacer commit y push a la main branch del repositorio
 
+El despliegue se verá reflejado en el siguiente enlace;
+
+https://chuck-jet.vercel.app/
+
 ## Dev
 
 Para hacer cambios y empezar un servidor en localhost, utilizar los siguientes comandos

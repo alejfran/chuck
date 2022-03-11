@@ -19,7 +19,6 @@ const BoxWrapper = styled.div`
 `;
 
 const Home = ({ initialJokes }) => {
-  console.log(JSON.parse(initialJokes));
   const [savedJokes, setSavedJokes] = useState([]);
 
   useEffect(() => {
@@ -27,9 +26,7 @@ const Home = ({ initialJokes }) => {
   }, [savedJokes]);
 
   useEffect(() => {
-    if (initialJokes) {
-      setSavedJokes(JSON.parse(initialJokes));
-    }
+    setSavedJokes(JSON.parse(initialJokes || "[]"));
   }, [initialJokes]);
 
   return (
@@ -47,7 +44,7 @@ Home.getInitialProps = ({ req }) => {
   const cookies = parseCookies(req);
 
   return {
-    initialJokes: cookies?.jokes || [],
+    initialJokes: cookies.jokes || "[]",
   };
 };
 

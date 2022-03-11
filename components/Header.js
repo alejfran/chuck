@@ -7,7 +7,6 @@ import { GiAk47 } from "react-icons/gi";
 const HeaderContainer = styled.div`
   justify-content: center;
   align-items: center;
-  padding: 2rem;
   display: flex;
 `;
 const TitleContainer = styled.div`

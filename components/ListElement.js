@@ -8,7 +8,7 @@ const ListWrapper = styled.div`
   align-items: center;
   padding: 0rem 1rem;
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
-  margin: 1rem 0;
+  margin: 1rem;
 `;
 const ListElement = ({ joke, setSavedJokes }) => {
   const { value, id } = joke;

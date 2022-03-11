@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ListElement from "./ListElement";
+import Cookie from "js-cookie";
 
 const Wrapper = styled.div`
   justify-content: center;
@@ -40,7 +41,7 @@ const SavedJokesBox = ({ savedJokes, setSavedJokes }) => {
             overflow: "auto",
           }}
         >
-          {savedJokes?.map((joke) => (
+          {savedJokes.map((joke) => (
             <ListElement
               key={joke.id}
               joke={joke}

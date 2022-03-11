@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ButtonComponent from "./ButtonComponent";
 import SelectBar from "./SelectBar";
@@ -34,7 +34,7 @@ const BoxTitle = styled.p`
   font-size: 3rem;
 `;
 
-const SelectionBox = ({ setSavedJokes }) => {
+const SelectionBox = ({ setSavedJokes, savedJokes }) => {
   const [selectedCategory, setSelectedCategory] = useState();
   const [newJoke, setNewJoke] = useState({});
 
@@ -49,6 +49,7 @@ const SelectionBox = ({ setSavedJokes }) => {
     setNewJoke(data);
     console.log(newJoke);
   };
+
   return (
     <Wrapper>
       <BoxContainer>
@@ -82,7 +83,7 @@ const SelectionBox = ({ setSavedJokes }) => {
             click={() =>
               setSavedJokes((prev) =>
                 newJoke.value
-                  ? !prev?.map((joke) => joke.id).includes(newJoke.id)
+                  ? prev && !prev?.map((joke) => joke.id).includes(newJoke.id)
                     ? [...prev, newJoke]
                     : [...prev]
                   : [...prev]

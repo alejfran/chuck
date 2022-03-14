@@ -10,6 +10,7 @@ const ExportComponent = ({ savedJokes }) => {
     newArray.forEach(function (d) {
       d.categories = "";
     });
+    console.log(newArray);
     setJokesArray(newArray);
   }, [savedJokes]);
 
@@ -19,9 +20,11 @@ const ExportComponent = ({ savedJokes }) => {
 
   return (
     <div style={{ marginTop: "2rem" }}>
-      <ExcelDownloder data={data} filename={"jokes"} type={Type.Button}>
-        Download
-      </ExcelDownloder>
+      {jokesArray?.length > 0 && (
+        <ExcelDownloder data={data} filename={"jokes"} type={Type.Button}>
+          Download
+        </ExcelDownloder>
+      )}
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import ListElement from "./ListElement";
 import Cookie from "js-cookie";
+import ExportComponent from "./ExportComponent";
 
 const Wrapper = styled.div`
   justify-content: center;
@@ -49,6 +50,7 @@ const SavedJokesBox = ({ savedJokes, setSavedJokes }) => {
             />
           ))}
         </div>
+        <ExportComponent savedJokes={savedJokes} />
       </BoxContainer>
     </Wrapper>
   );
